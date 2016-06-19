@@ -5,7 +5,16 @@ describe Runner do
   let(:path) { File.expand_path('../examples/first.txt', __FILE__) }
   subject { described_class.new(path) }
 
-  it { should be_truthy }
-  it { expect(subject.planet.dimensions).to eq 4 }
-  it { expect(subject.planet.zombies.first).to be_at(2, 1) }
+  let(:planet_double) { double }
+
+  it "creates a planet of the correct dimensions" do
+    expect(Planet).to receive(:new).with(4).and_call_original
+    subject
+  end
+
+  it "adds a zombie to its planet" do
+    expect(Planet).to receive(:new).and_return(planet_double)
+    expect(planet_double).to receive(:add_zombie).with([2, 1])
+    subject
+  end
 end

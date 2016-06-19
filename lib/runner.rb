@@ -8,6 +8,9 @@ class Runner
     read_path(path)
   end
 
+  def start
+  end
+
   def read_path path
     File.open(path, 'r') do |file|
       set_dimensions(file.readline.strip)

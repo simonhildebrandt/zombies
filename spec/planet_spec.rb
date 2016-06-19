@@ -14,4 +14,9 @@ describe Planet do
     end
     it { expect(subject.zombies.first).to be_at(2, 1) }
   end
+
+
+    # it "one zombie ends up at 3, 0" do
+    #   expect(subject.planet.zombies).to include( be_at(3, 0) )
+    # end
 end
