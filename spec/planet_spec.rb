@@ -13,10 +13,15 @@ describe Planet do
       subject.add_zombie [2, 1]
     end
     it { expect(subject.zombies.first).to be_at(2, 1) }
+
+    context "that's been run" do
+      before do
+        subject.iterate ['U', 'R', 'D']
+      end
+
+      it "will have one end up at 3, 1" do
+        expect(subject.zombies).to include( be_at(3, 1) )
+      end
+    end
   end
-
-
-    # it "one zombie ends up at 3, 0" do
-    #   expect(subject.planet.zombies).to include( be_at(3, 0) )
-    # end
 end

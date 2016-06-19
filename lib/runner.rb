@@ -2,13 +2,14 @@ require 'planet'
 require 'zombie'
 
 class Runner
-  attr_accessor :planet
+  attr_accessor :planet, :zombie_path
 
   def initialize(path)
     read_path(path)
   end
 
   def start
+    planet.iterate zombie_path
   end
 
   def read_path path
@@ -32,5 +33,6 @@ class Runner
   end
 
   def set_zombie_path path_data
+    self.zombie_path = path_data.split('')
   end
 end

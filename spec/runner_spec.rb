@@ -17,4 +17,11 @@ describe Runner do
     expect(planet_double).to receive(:add_zombie).with([2, 1])
     subject
   end
+
+  it "starts the planet iterating on start" do
+    expect(Planet).to receive(:new).and_return(planet_double)
+    allow(planet_double).to receive(:add_zombie)
+    expect(planet_double).to receive(:iterate).with(['D', 'L', 'U', 'U', 'R', 'R'])
+    subject.start
+  end
 end
