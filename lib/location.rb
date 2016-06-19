@@ -29,6 +29,10 @@ class Location
     end
   end
 
+  def position
+    "#{x} #{y}"
+  end
+
   def to_s
     "<Location:#{object_id} @ #{x}x#{y}"
   end

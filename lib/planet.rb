@@ -4,11 +4,11 @@ require 'creature'
 class Planet
   attr_accessor :dimensions, :zombies, :creatures, :porous
 
-  def initialize(size)
+  def initialize(size, porous=false)
     @dimensions = size
     @zombies = []
     @creatures = []
-    @porous = false
+    @porous = porous
   end
 
   def run_path(steps)
@@ -25,6 +25,10 @@ class Planet
 
   def score
     zombie_count - 1
+  end
+
+  def zombie_positions
+    zombies.map(&:position)
   end
 
   def zombie_count

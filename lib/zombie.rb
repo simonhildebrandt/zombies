@@ -10,4 +10,8 @@ class Zombie
   def move(direction)
     location.move direction
   end
+
+  def position
+    location.position
+  end
 end

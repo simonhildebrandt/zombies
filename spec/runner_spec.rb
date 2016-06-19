@@ -8,7 +8,7 @@ describe Runner do
   let(:planet_double) { double(add_zombie: nil, add_creature: nil, run_path: nil) }
 
   it "creates a planet of the correct dimensions" do
-    expect(Planet).to receive(:new).with(4).and_call_original
+    expect(Planet).to receive(:new).with(4, false).and_call_original
     subject
   end
 
