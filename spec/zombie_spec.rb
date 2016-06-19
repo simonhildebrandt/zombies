@@ -2,15 +2,10 @@ require 'spec_helper'
 require 'zombie'
 
 describe Zombie do
-  let(:planet) { double }
   let(:location) { Location.new(5, 6) }
-  subject { described_class.new(planet, location) }
+  subject { described_class.new(location) }
 
   it { should be_truthy }
-
-  it "has a planet" do
-    expect(subject.planet).not_to be nil
-  end
 
   it "has a location" do
     expect(subject.location).not_to be nil

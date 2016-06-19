@@ -3,8 +3,7 @@ require 'location'
 class Zombie
   attr_accessor :planet, :location
 
-  def initialize(planet, location)
-    @planet = planet
+  def initialize(location)
     @location = location
   end
 

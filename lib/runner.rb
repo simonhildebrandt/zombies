@@ -1,5 +1,6 @@
 require 'planet'
 require 'zombie'
+require 'creature'
 
 class Runner
   attr_accessor :planet, :zombie_path
@@ -30,6 +31,9 @@ class Runner
   end
 
   def set_creatures creature_data
+    creature_data.split(',').each do |position|
+      planet.add_creature position.split(' ').map(&:to_i)
+    end
   end
 
   def set_zombie_path path_data

@@ -6,6 +6,7 @@ describe Planet do
 
   it { should be_truthy }
   it { expect(subject.zombies).to be_kind_of(Array) }
+  it { expect(subject.creatures).to be_kind_of(Array) }
   it { expect(subject.dimensions).to be 4 }
 
   context "with a zombie" do
