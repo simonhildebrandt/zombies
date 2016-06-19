@@ -1,8 +1,9 @@
 class Zombie
-  attr_accessor :planet
+  attr_accessor :planet, :location
 
-  def initialize(planet)
+  def initialize(planet, location)
     @planet = planet
+    @location = location
   end
 
 end
