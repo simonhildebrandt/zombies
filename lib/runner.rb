@@ -1,3 +1,6 @@
+require 'planet'
+require 'zombie'
+
 class Runner
   attr_accessor :planet
 
@@ -19,7 +22,7 @@ class Runner
   end
 
   def set_initial l
-    planet.add_zombie l.split(' ')
+    planet.add_zombie l.split(' ').map(&:to_i)
   end
 
   def set_creatures creature_data

@@ -7,4 +7,5 @@ describe Runner do
 
   it { should be_truthy }
   it { expect(subject.planet.dimensions).to eq 4 }
+  it { expect(subject.planet.zombies.first).to be_at(2, 1) }
 end
