@@ -2,7 +2,7 @@ require 'rspec/expectations'
 
 RSpec::Matchers.define :be_at do |x, y|
   match do |actual|
-    expected = Location.new(x, y)
+    expected = Location.new(x, y, nil)
     actual.location == expected
   end
   failure_message do |actual|

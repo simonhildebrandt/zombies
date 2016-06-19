@@ -1,22 +1,34 @@
+require 'zombie'
+require 'creature'
+
 class Planet
-  attr_accessor :dimensions, :zombies, :creatures
+  attr_accessor :dimensions, :zombies, :creatures, :porous
 
   def initialize(size)
     @dimensions = size
     @zombies = []
     @creatures = []
+    @porous = false
   end
 
-  def iterate(steps)
+  def run_path(steps)
     zombies.each do |zombie|
       steps.each do |step|
         zombie.move(step)
 
         bitten_creatures = creatures_at_location(zombie.location)
-        self.zombies += bitten_creatures.map(&:zombified)
+        bitten_creatures.each {|c| zombies << Zombie.new(c.location) }
         self.creatures -= bitten_creatures
       end
     end
+  end
+
+  def score
+    zombie_count - 1
+  end
+
+  def zombie_count
+    zombies.count
   end
 
   def creatures_at_location(location)
@@ -24,10 +36,10 @@ class Planet
   end
 
   def add_creature position
-    creatures << Creature.new(Location.new(*position))
+    creatures << Creature.new(Location.new(*position, self))
   end
 
   def add_zombie position
-    zombies << Zombie.new(Location.new(*position))
+    zombies << Zombie.new(Location.new(*position, self))
   end
 end

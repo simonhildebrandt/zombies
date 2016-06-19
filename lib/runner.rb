@@ -10,7 +10,7 @@ class Runner
   end
 
   def start
-    planet.iterate zombie_path
+    planet.run_path zombie_path
   end
 
   def read_path path
